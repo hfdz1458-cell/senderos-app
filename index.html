@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senderos - Tu camino personal en las Escrituras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige-primary: #F5E6D3;
+            --olive-green: #9CAF88;
+            --butter-yellow: #F4E4A1;
+            --terracotta: #D4A574;
+            --cream-light: #FBF7F0;
+            --sage-dark: #6B7F5C;
+            --brown-text: #5C4033;
+            --parchment: #FFFEF9;
+            --shadow-soft: rgba(92, 64, 51, 0.08);
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, var(--cream-light) 0%, var(--beige-primary) 100%);
+            color: var(--brown-text);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            background: var(--parchment);
+            box-shadow: 0 2px 10px var(--shadow-soft);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--sage-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🌿";
+            font-size: 32px;
+        }
+
+        .nav-button {
+            background: var(--olive-green);
+            color: var(--parchment);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(156, 175, 136, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: var(--brown-text);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--sage-dark);
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: var(--butter-yellow);
+            color: var(--brown-text);
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(244, 228, 161, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(244, 228, 161, 0.6);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: var(--parchment);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--olive-green);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-soft);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            color: var(--sage-dark);
+            margin-bottom: 10px;
+        }
+
+        /* Topics Section */
+        .topics {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--brown-text);
+            margin-bottom: 50px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: var(--parchment);
+            border: 3px solid transparent;
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .topic-card:hover {
+            border-color: var(--olive-green);
+            transform: scale(1.05);
+        }
+
+        .topic-card.selected {
+            background: var(--butter-yellow);
+            border-color: var(--terracotta);
+        }
+
+        .topic-emoji {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .topic-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--brown-text);
+            margin-bottom: 8px;
+        }
+
+        .topic-books {
+            font-size: 14px;
+            color: var(--sage-dark);
+            opacity: 0.8;
+        }
+
+        /* Email Capture */
+        .email-section {
+            background: linear-gradient(135deg, var(--olive-green), var(--sage-dark));
+            padding: 60px 0;
+            border-radius: 20px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .email-section h2 {
+            color: var(--parchment);
+            margin-bottom: 20px;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .email-input {
+            padding: 15px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            width: 300px;
+            background: var(--parchment);
+            color: var(--brown-text);
+        }
+
+        .email-submit {
+            background: var(--butter-yellow);
+            color: var(--brown-text);
+            border: none;
+            padding: 15px 35px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .email-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 228, 161, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--sage-dark);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--sage-dark);
+        }
+
+        /* How it Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--cream-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--sage-dark);
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        .steps-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .decorative-branch {
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            color: var(--olive-green);
+        }
+
+        .left-branch {
+            left: -50px;
+            top: 100px;
+            transform: rotate(-15deg);
+        }
+
+        .right-branch {
+            right: -50px;
+            bottom: 100px;
+            transform: rotate(15deg);
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .step.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--olive-green);
+            color: var(--parchment);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(156, 175, 136, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+            background: var(--parchment);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow-soft);
+        }
+
+        .step-content h3 {
+            color: var(--brown-text);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .step-content p {
+            color: var(--sage-dark);
+            line-height: 1.6;
+        }
+
+        .step-illustration {
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .illustration-card {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+            background: var(--butter-yellow);
+            border-radius: 10px;
+            opacity: 0.7;
+        }
+
+        .mini-icon {
+            font-size: 24px;
+        }
+
+        .email-animation {
+            position: relative;
+            padding: 10px;
+        }
+
+        .envelope {
+            font-size: 40px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .sparkle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .progress-visual {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .progress-bar {
+            width: 60px;
+            height: 8px;
+            background: linear-gradient(90deg, var(--olive-green) 60%, var(--cream-light) 60%);
+            border-radius: 4px;
+        }
+
+        .achievement {
+            font-size: 30px;
+        }
+
+        .step-connector {
+            width: 2px;
+            height: 40px;
+            background: var(--terracotta);
+            margin: -20px auto;
+            opacity: 0.3;
+        }
+
+        .sample-email {
+            max-width: 600px;
+            margin: 60px auto 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px var(--shadow-soft);
+            border: 2px solid var(--olive-green);
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: var(--olive-green);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .email-badge {
+            color: var(--parchment);
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .email-preview {
+            padding: 30px;
+        }
+
+        .email-subject {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--brown-text);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--beige-primary);
+        }
+
+        .email-body {
+            space-y: 15px;
+        }
+
+        .email-section-item {
+            margin-bottom: 15px;
+            color: var(--sage-dark);
+            line-height: 1.6;
+        }
+
+        .email-section-item strong {
+            color: var(--brown-text);
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .email-footer {
+            background: var(--beige-primary);
+            padding: 15px;
+            text-align: center;
+            color: var(--sage-dark);
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .features, .topics, .email-section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topics-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .step {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .step-illustration {
+                float: none;
+                margin: 0 auto 20px;
+            }
+
+            .decorative-branch {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Senderos</div>
+                <button class="nav-button">Iniciar Sesión</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Descubre la Biblia a tu ritmo,<br>tema por tema</h1>
+            <p class="subtitle">Elige qué quieres aprender y recibe un plan de estudio personalizado directamente en tu correo</p>
+            <button class="cta-button" onclick="scrollToTopics()">Comenzar mi viaje →</button>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">100% Bíblico</h3>
+                    <p>Contenido directo de las Escrituras, sin interpretaciones denominacionales</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Personalizado</h3>
+                    <p>Tú eliges los temas que quieres estudiar y el ritmo de aprendizaje</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💝</div>
+                    <h3 class="feature-title">Siempre Gratis</h3>
+                    <p>Sin costos ocultos. Opción de donar solo si lo deseas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funciona Senderos?</h2>
+            <p class="section-subtitle">Tu viaje bíblico personalizado en 3 simples pasos</p>
+            
+            <div class="steps-container">
+                <div class="decorative-branch left-branch">🌿</div>
+                <div class="decorative-branch right-branch">🌾</div>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-illustration">
+                            <div class="illustration-card">
+                                <span class="mini-icon">📖</span>
+                                <span class="mini-icon">✝️</span>
+                                <span class="mini-icon">🎵</span>
+                            </div>
+                        </div>
+                        <h3>Elige tus temas</h3>
+                        <p>Selecciona los temas bíblicos que más te interesen: sabiduría, vida de Jesús, profetas, y más</p>
+                    </div>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step reverse">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-illustration">
+                            <div class="email-animation">
+                                <span class="envelope">✉️</span>
+                                <span class="sparkle">✨</span>
+                            </div>
+                        </div>
+                        <h3>Recibe tu plan</h3>
+                        <p>Te enviamos un plan de estudio estructurado con lecturas diarias, contexto histórico y recursos adicionales</p>
+                    </div>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-illustration">
+                            <div class="progress-visual">
+                                <span class="progress-bar"></span>
+                                <span class="achievement">🏆</span>
+                            </div>
+                        </div>
+                        <h3>Crece a tu ritmo</h3>
+                        <p>Estudia cuando quieras, marca tu progreso y celebra cada libro completado. Sin presión, sin plazos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sample-email">
+                <div class="email-header">
+                    <span class="email-badge">Ejemplo de email diario</span>
+                </div>
+                <div class="email-preview">
+                    <div class="email-subject">📖 Día 5 - Proverbios 5: La sabiduría en las relaciones</div>
+                    <div class="email-body">
+                        <div class="email-section-item">
+                            <strong>📚 Lectura de hoy:</strong> Proverbios 5 (5 min)
+                        </div>
+                        <div class="email-section-item">
+                            <strong>💡 Idea central:</strong> La importancia de la fidelidad y la prudencia
+                        </div>
+                        <div class="email-section-item">
+                            <strong>🎯 Aplicación práctica:</strong> Reflexión para tu día
+                        </div>
+                        <div class="email-section-item">
+                            <strong>📺 Recurso extra:</strong> Video contextual (opcional)
+                        </div>
+                    </div>
+                    <div class="email-footer">
+                        Tu progreso: ▓▓▓▓▓░░░░░ 50%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Selection -->
+    <section class="topics" id="topics">
+        <div class="container">
+            <h2 class="section-title">¿Qué te gustaría aprender?</h2>
+            <div class="topics-grid">
+                <div class="topic-card" onclick="toggleTopic(this)">
+                    <div class="topic-emoji">📖</div>
+                    <div class="topic-name">Sabiduría</div>
+                    <div class="topic-books">Proverbios, Eclesiastés, Job, Santiago</div>
+                </div>
+                <div class="topic-card" onclick="toggleTopic(this)">
+                    <div class="topic-emoji">✝️</div>
+                    <div class="topic-name">Vida de Jesús</div>
+                    <div class="topic-books">Los 4 Evangelios</div>
+                </div>
+                <div class="topic-card" onclick="toggleTopic(this)">
+                    <div class="topic-emoji">🔥</div>
+                    <div class="topic-name">Pablo</div>
+                    <div class="topic-books">Hechos y Epístolas</div>
+                </div>
+                <div class="topic-card" onclick="toggleTopic(this)">
+                    <div class="topic-emoji">💫</div>
+                    <div class="topic-name">Profetas</div>
+                    <div class="topic-books">Mayores y Menores</div>
+                </div>
+                <div class="topic-card" onclick="toggleTopic(this)">
+                    <div class="topic-emoji">👥</div>
+                    <div class="topic-name">12 Discípulos</div>
+                    <div class="topic-books">Sus historias y escritos</div>
+                </div>
+                <div class="topic-card" onclick="toggleTopic(this)">
+                    <div class="topic-emoji">🎵</div>
+                    <div class="topic-name">Alabanza</div>
+                    <div class="topic-books">Salmos y oraciones</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture -->
+    <section class="email-section">
+        <div class="container">
+            <h2>¿Listo para comenzar tu viaje?</h2>
+            <p style="color: var(--parchment); opacity: 0.9;">Recibe tu plan personalizado de estudio bíblico</p>
+            <form class="email-form" onsubmit="handleSubmit(event)">
+                <input type="email" class="email-input" placeholder="tu@email.com" required>
+                <button type="submit" class="email-submit">Comenzar Gratis</button>
+            </form>
+            <div class="trust-badges">
+                <div class="badge" style="color: var(--parchment);">
+                    <span>✓</span> Sin spam
+                </div>
+                <div class="badge" style="color: var(--parchment);">
+                    <span>✓</span> Cancela cuando quieras
+                </div>
+                <div class="badge" style="color: var(--parchment);">
+                    <span>✓</span> 100% gratuito
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Senderos - Tu camino personal en las Escrituras</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Hecho con 💚 para la gloria de Dios</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTopic(card) {
+            card.classList.toggle('selected');
+        }
+
+        function scrollToTopics() {
+            document.getElementById('topics').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const selectedTopics = document.querySelectorAll('.topic-card.selected');
+            if (selectedTopics.length === 0) {
+                alert('Por favor, selecciona al menos un tema de estudio');
+                scrollToTopics();
+                return;
+            }
+            alert('¡Gracias por registrarte! Revisa tu correo para comenzar tu viaje bíblico.');
+        }
+    </script>
+</body>
+</html>
