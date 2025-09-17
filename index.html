@@ -36,7 +36,7 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header - SIN BOTÓN DE LOGIN */
         header {
             padding: 30px 0;
             background: var(--parchment);
@@ -45,7 +45,7 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
@@ -63,22 +63,6 @@
             font-size: 32px;
         }
 
-        .nav-button {
-            background: var(--olive-green);
-            color: var(--parchment);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(156, 175, 136, 0.3);
-        }
-
         /* Hero Section */
         .hero {
             padding: 80px 0;
@@ -90,6 +74,7 @@
             color: var(--brown-text);
             margin-bottom: 20px;
             line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
         }
 
         .subtitle {
@@ -97,6 +82,7 @@
             color: var(--sage-dark);
             margin-bottom: 40px;
             opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .cta-button {
@@ -110,6 +96,7 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(244, 228, 161, 0.4);
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .cta-button:hover {
@@ -117,7 +104,18 @@
             box-shadow: 0 6px 20px rgba(244, 228, 161, 0.6);
         }
 
-        /* Features */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features - SIN MENCIONAR DINERO */
         .features {
             padding: 60px 0;
             background: var(--parchment);
@@ -157,139 +155,19 @@
             margin-bottom: 10px;
         }
 
-        /* Topics Section */
-        .topics {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            color: var(--brown-text);
-            margin-bottom: 50px;
-        }
-
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .topic-card {
-            background: var(--parchment);
-            border: 3px solid transparent;
-            padding: 25px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .topic-card:hover {
-            border-color: var(--olive-green);
-            transform: scale(1.05);
-        }
-
-        .topic-card.selected {
-            background: var(--butter-yellow);
-            border-color: var(--terracotta);
-        }
-
-        .topic-emoji {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .topic-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--brown-text);
-            margin-bottom: 8px;
-        }
-
-        .topic-books {
-            font-size: 14px;
-            color: var(--sage-dark);
-            opacity: 0.8;
-        }
-
-        /* Email Capture */
-        .email-section {
-            background: linear-gradient(135deg, var(--olive-green), var(--sage-dark));
-            padding: 60px 0;
-            border-radius: 20px;
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .email-section h2 {
-            color: var(--parchment);
-            margin-bottom: 20px;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .email-input {
-            padding: 15px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 25px;
-            width: 300px;
-            background: var(--parchment);
-            color: var(--brown-text);
-        }
-
-        .email-submit {
-            background: var(--butter-yellow);
-            color: var(--brown-text);
-            border: none;
-            padding: 15px 35px;
-            font-size: 16px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .email-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(244, 228, 161, 0.5);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: var(--sage-dark);
-        }
-
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--sage-dark);
-        }
-
         /* How it Works Section */
         .how-it-works {
             padding: 80px 0;
             background: var(--cream-light);
             position: relative;
             overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--brown-text);
+            margin-bottom: 10px;
         }
 
         .section-subtitle {
@@ -304,25 +182,6 @@
             position: relative;
             max-width: 900px;
             margin: 0 auto;
-        }
-
-        .decorative-branch {
-            position: absolute;
-            font-size: 120px;
-            opacity: 0.1;
-            color: var(--olive-green);
-        }
-
-        .left-branch {
-            left: -50px;
-            top: 100px;
-            transform: rotate(-15deg);
-        }
-
-        .right-branch {
-            right: -50px;
-            bottom: 100px;
-            transform: rotate(15deg);
         }
 
         .step {
@@ -371,80 +230,6 @@
             line-height: 1.6;
         }
 
-        .step-illustration {
-            float: right;
-            margin-left: 20px;
-            margin-bottom: 10px;
-        }
-
-        .illustration-card {
-            display: flex;
-            gap: 5px;
-            padding: 10px;
-            background: var(--butter-yellow);
-            border-radius: 10px;
-            opacity: 0.7;
-        }
-
-        .mini-icon {
-            font-size: 24px;
-        }
-
-        .email-animation {
-            position: relative;
-            padding: 10px;
-        }
-
-        .envelope {
-            font-size: 40px;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .sparkle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-size: 20px;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        .progress-visual {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-        }
-
-        .progress-bar {
-            width: 60px;
-            height: 8px;
-            background: linear-gradient(90deg, var(--olive-green) 60%, var(--cream-light) 60%);
-            border-radius: 4px;
-        }
-
-        .achievement {
-            font-size: 30px;
-        }
-
-        .step-connector {
-            width: 2px;
-            height: 40px;
-            background: var(--terracotta);
-            margin: -20px auto;
-            opacity: 0.3;
-        }
-
         .sample-email {
             max-width: 600px;
             margin: 60px auto 0;
@@ -482,10 +267,6 @@
             border-bottom: 2px solid var(--beige-primary);
         }
 
-        .email-body {
-            space-y: 15px;
-        }
-
         .email-section-item {
             margin-bottom: 15px;
             color: var(--sage-dark);
@@ -506,20 +287,271 @@
             font-size: 14px;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
+        /* Topics Section - SOLO PROVERBIOS ACTIVO */
+        .topics {
+            padding: 80px 0;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .topic-card {
+            background: var(--parchment);
+            border: 3px solid transparent;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card.active {
+            cursor: pointer;
+        }
+
+        .topic-card.active:hover {
+            border-color: var(--olive-green);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(156, 175, 136, 0.2);
+        }
+
+        .topic-card.active.expanded {
+            grid-column: span 2;
+            background: var(--butter-yellow);
+            border-color: var(--olive-green);
+        }
+
+        .topic-card.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f0f0f0;
+        }
+
+        .topic-card.disabled:hover {
+            transform: none;
+            border-color: transparent;
+        }
+
+        .coming-soon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--sage-dark);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .topic-emoji {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .topic-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--brown-text);
+            margin-bottom: 8px;
+        }
+
+        .topic-books {
+            font-size: 14px;
+            color: var(--sage-dark);
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .topic-duration {
+            font-size: 13px;
+            color: var(--olive-green);
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .topic-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(107, 127, 92, 0.2);
+            text-align: left;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                max-height: 0;
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                max-height: 300px;
             }
         }
 
-        .hero, .features, .topics, .email-section {
-            animation: fadeIn 0.8s ease-out;
+        .start-program-btn {
+            background: var(--olive-green);
+            color: var(--parchment);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .start-program-btn:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 127, 92, 0.3);
+        }
+
+        /* Form Section */
+        .email-section-custom {
+            padding: 80px 0;
+            background: var(--cream-light);
+            position: relative;
+        }
+
+        .form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--parchment);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(92, 64, 51, 0.15);
+            position: relative;
+        }
+
+        .form-title {
+            color: var(--brown-text);
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            color: var(--sage-dark);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .custom-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid var(--beige-primary);
+            border-radius: 12px;
+            background: white;
+            transition: all 0.3s ease;
+            color: var(--brown-text);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--olive-green);
+            box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.1);
+        }
+
+        .frequency-selector {
+            margin: 20px 0;
+        }
+
+        .frequency-label {
+            color: var(--sage-dark);
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .frequency-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .frequency-option input {
+            display: none;
+        }
+
+        .option-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: var(--beige-primary);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .frequency-option input:checked + .option-card {
+            background: var(--butter-yellow);
+            border-color: var(--olive-green);
+        }
+
+        .option-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-submit {
+            background: var(--butter-yellow);
+            color: var(--brown-text);
+            border: none;
+            padding: 18px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background: var(--olive-green);
+            color: var(--parchment);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(156, 175, 136, 0.3);
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--sage-dark);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--sage-dark);
         }
 
         /* Responsive */
@@ -533,32 +565,33 @@
             }
             
             .topics-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: 1fr;
+            }
+
+            .topic-card.active.expanded {
+                grid-column: span 1;
+            }
+
+            .frequency-options {
+                grid-template-columns: 1fr;
             }
 
             .step {
                 flex-direction: column !important;
-                text-align: center;
             }
 
-            .step-illustration {
-                float: none;
-                margin: 0 auto 20px;
-            }
-
-            .decorative-branch {
-                display: none;
+            .step-number {
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header SIN BOTÓN DE LOGIN -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo">Senderos</div>
-                <button class="nav-button">Iniciar Sesión</button>
             </nav>
         </div>
     </header>
@@ -567,12 +600,12 @@
     <section class="hero">
         <div class="container">
             <h1>Descubre la Biblia a tu ritmo,<br>tema por tema</h1>
-            <p class="subtitle">Elige qué quieres aprender y recibe un plan de estudio personalizado directamente en tu correo</p>
+            <p class="subtitle">Recibe un plan de estudio bíblico personalizado directamente en tu correo</p>
             <button class="cta-button" onclick="scrollToTopics()">Comenzar mi viaje →</button>
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- Features SIN MENCIONAR DINERO -->
     <section class="features">
         <div class="container">
             <div class="features-grid">
@@ -588,23 +621,20 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💝</div>
-                    <h3 class="feature-title">Siempre Gratis</h3>
-                    <p>Sin costos ocultos. Opción de donar solo si lo deseas</p>
+                    <h3 class="feature-title">Completamente Gratis</h3>
+                    <p>Acceso total a todos los programas sin ningún costo</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How it Works -->
+    <!-- How it Works - SECCIÓN CON ANIMACIONES RESTAURADAS -->
     <section class="how-it-works">
         <div class="container">
             <h2 class="section-title">¿Cómo funciona Senderos?</h2>
             <p class="section-subtitle">Tu viaje bíblico personalizado en 3 simples pasos</p>
             
             <div class="steps-container">
-                <div class="decorative-branch left-branch">🌿</div>
-                <div class="decorative-branch right-branch">🌾</div>
-                
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
@@ -615,8 +645,8 @@
                                 <span class="mini-icon">🎵</span>
                             </div>
                         </div>
-                        <h3>Elige tus temas</h3>
-                        <p>Selecciona los temas bíblicos que más te interesen: sabiduría, vida de Jesús, profetas, y más</p>
+                        <h3>Elige tu programa</h3>
+                        <p>Selecciona el tema bíblico que quieres estudiar. Comenzamos con Proverbios: 31 días de sabiduría práctica, un capítulo por día.</p>
                     </div>
                 </div>
 
@@ -631,8 +661,8 @@
                                 <span class="sparkle">✨</span>
                             </div>
                         </div>
-                        <h3>Recibe tu plan</h3>
-                        <p>Te enviamos un plan de estudio estructurado con lecturas diarias, contexto histórico y recursos adicionales</p>
+                        <h3>Personaliza tu ritmo</h3>
+                        <p>Decide cómo quieres recibir las lecciones: diariamente para completar en un mes, 3 veces por semana, o semanalmente para un estudio más pausado.</p>
                     </div>
                 </div>
 
@@ -647,8 +677,8 @@
                                 <span class="achievement">🏆</span>
                             </div>
                         </div>
-                        <h3>Crece a tu ritmo</h3>
-                        <p>Estudia cuando quieras, marca tu progreso y celebra cada libro completado. Sin presión, sin plazos</p>
+                        <h3>Recibe tu plan por email</h3>
+                        <p>Te enviamos cada lección directamente a tu correo con el capítulo del día, reflexiones prácticas y recursos adicionales para profundizar.</p>
                     </div>
                 </div>
             </div>
@@ -658,61 +688,89 @@
                     <span class="email-badge">Ejemplo de email diario</span>
                 </div>
                 <div class="email-preview">
-                    <div class="email-subject">📖 Día 5 - Proverbios 5: La sabiduría en las relaciones</div>
-                    <div class="email-body">
-                        <div class="email-section-item">
-                            <strong>📚 Lectura de hoy:</strong> Proverbios 5 (5 min)
-                        </div>
-                        <div class="email-section-item">
-                            <strong>💡 Idea central:</strong> La importancia de la fidelidad y la prudencia
-                        </div>
-                        <div class="email-section-item">
-                            <strong>🎯 Aplicación práctica:</strong> Reflexión para tu día
-                        </div>
-                        <div class="email-section-item">
-                            <strong>📺 Recurso extra:</strong> Video contextual (opcional)
-                        </div>
+                    <div class="email-subject">📖 Día 5 - Proverbios 5: La sabiduría en las decisiones</div>
+                    <div class="email-section-item">
+                        <strong>📚 Lectura de hoy:</strong> Proverbios 5 (5 min de lectura)
                     </div>
-                    <div class="email-footer">
-                        Tu progreso: ▓▓▓▓▓░░░░░ 50%
+                    <div class="email-section-item">
+                        <strong>💡 Idea central:</strong> La importancia de la prudencia y el discernimiento
                     </div>
+                    <div class="email-section-item">
+                        <strong>🎯 Aplicación práctica:</strong> Reflexión para aplicar en tu día
+                    </div>
+                    <div class="email-section-item">
+                        <strong>📺 Recurso adicional:</strong> Video de contexto histórico (opcional)
+                    </div>
+                </div>
+                <div class="email-footer">
+                    Tu progreso: ▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░ 16% (5/31 días)
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Topics Selection -->
+    <!-- Topics Selection - SOLO PROVERBIOS ACTIVO -->
     <section class="topics" id="topics">
         <div class="container">
-            <h2 class="section-title">¿Qué te gustaría aprender?</h2>
+            <h2 class="section-title">Elige tu programa de estudio</h2>
+            <p style="text-align: center; color: var(--sage-dark); margin-bottom: 30px;">
+                Comienza con Proverbios: 31 días de sabiduría práctica. Más programas próximamente.
+            </p>
+            
             <div class="topics-grid">
-                <div class="topic-card" onclick="toggleTopic(this)">
+                <!-- PROVERBIOS - ÚNICO ACTIVO -->
+                <div class="topic-card active" id="proverbios-card" onclick="toggleProverbios(this)">
                     <div class="topic-emoji">📖</div>
-                    <div class="topic-name">Sabiduría</div>
-                    <div class="topic-books">Proverbios, Eclesiastés, Job, Santiago</div>
+                    <div class="topic-name">Proverbios</div>
+                    <div class="topic-books">31 capítulos de sabiduría</div>
+                    <div class="topic-duration">📅 31 días (1 mes)</div>
+                    
+                    <div class="topic-details" id="proverbios-details" style="display: none;">
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--brown-text);">
+                            <strong>Tu programa incluye:</strong><br>
+                            • Un capítulo diario (5 min)<br>
+                            • Reflexión práctica para aplicar<br>
+                            • Pregunta para meditar en el día<br>
+                            • Recursos adicionales opcionales
+                        </p>
+                        <button class="start-program-btn" onclick="goToForm(event)">
+                            Comenzar programa →
+                        </button>
+                    </div>
                 </div>
-                <div class="topic-card" onclick="toggleTopic(this)">
-                    <div class="topic-emoji">✝️</div>
+                
+                <!-- TODOS LOS DEMÁS DESHABILITADOS -->
+                <div class="topic-card disabled">
+                    <span class="coming-soon">Próximamente</span>
+                    <div class="topic-emoji" style="opacity: 0.5;">✝️</div>
                     <div class="topic-name">Vida de Jesús</div>
                     <div class="topic-books">Los 4 Evangelios</div>
                 </div>
-                <div class="topic-card" onclick="toggleTopic(this)">
-                    <div class="topic-emoji">🔥</div>
+                
+                <div class="topic-card disabled">
+                    <span class="coming-soon">Próximamente</span>
+                    <div class="topic-emoji" style="opacity: 0.5;">🔥</div>
                     <div class="topic-name">Pablo</div>
                     <div class="topic-books">Hechos y Epístolas</div>
                 </div>
-                <div class="topic-card" onclick="toggleTopic(this)">
-                    <div class="topic-emoji">💫</div>
+                
+                <div class="topic-card disabled">
+                    <span class="coming-soon">Próximamente</span>
+                    <div class="topic-emoji" style="opacity: 0.5;">💫</div>
                     <div class="topic-name">Profetas</div>
                     <div class="topic-books">Mayores y Menores</div>
                 </div>
-                <div class="topic-card" onclick="toggleTopic(this)">
-                    <div class="topic-emoji">👥</div>
+                
+                <div class="topic-card disabled">
+                    <span class="coming-soon">Próximamente</span>
+                    <div class="topic-emoji" style="opacity: 0.5;">👥</div>
                     <div class="topic-name">12 Discípulos</div>
-                    <div class="topic-books">Sus historias y escritos</div>
+                    <div class="topic-books">Sus historias</div>
                 </div>
-                <div class="topic-card" onclick="toggleTopic(this)">
-                    <div class="topic-emoji">🎵</div>
+                
+                <div class="topic-card disabled">
+                    <span class="coming-soon">Próximamente</span>
+                    <div class="topic-emoji" style="opacity: 0.5;">🎵</div>
                     <div class="topic-name">Alabanza</div>
                     <div class="topic-books">Salmos y oraciones</div>
                 </div>
@@ -720,24 +778,73 @@
         </div>
     </section>
 
-    <!-- Email Capture -->
-    <section class="email-section">
+    <!-- Form Section -->
+    <section class="email-section-custom" id="registro" style="display: none;">
         <div class="container">
-            <h2>¿Listo para comenzar tu viaje?</h2>
-            <p style="color: var(--parchment); opacity: 0.9;">Recibe tu plan personalizado de estudio bíblico</p>
-            <form class="email-form" onsubmit="handleSubmit(event)">
-                <input type="email" class="email-input" placeholder="tu@email.com" required>
-                <button type="submit" class="email-submit">Comenzar Gratis</button>
-            </form>
-            <div class="trust-badges">
-                <div class="badge" style="color: var(--parchment);">
-                    <span>✓</span> Sin spam
+            <div class="form-wrapper">
+                <div style="background: var(--butter-yellow); padding: 15px; border-radius: 10px; margin-bottom: 25px; text-align: center;">
+                    <h3 style="color: var(--brown-text); margin-bottom: 5px;">📚 Programa: Proverbios</h3>
+                    <p style="color: var(--sage-dark); font-size: 14px;">31 días de sabiduría bíblica práctica</p>
                 </div>
-                <div class="badge" style="color: var(--parchment);">
-                    <span>✓</span> Cancela cuando quieras
+                
+                <h2 class="form-title">Completa tu registro</h2>
+                <p class="form-subtitle">Personaliza cómo recibir las lecciones</p>
+                
+                <form class="custom-form" id="senderos-form" onsubmit="handleSubmit(event)">
+                    <input type="text" name="name" class="form-input" placeholder="Tu nombre (opcional)">
+                    
+                    <input type="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                    
+                    <div class="frequency-selector">
+                        <p class="frequency-label">¿Con qué frecuencia quieres recibir las lecciones?</p>
+                        <div class="frequency-options">
+                            <label class="frequency-option">
+                                <input type="radio" name="frequency" value="daily" checked>
+                                <span class="option-card">
+                                    <span style="font-size: 24px;">📅</span>
+                                    <span style="font-weight: bold;">Diario</span>
+                                    <span style="font-size: 11px; opacity: 0.7;">31 días</span>
+                                </span>
+                            </label>
+                            <label class="frequency-option">
+                                <input type="radio" name="frequency" value="3-weekly">
+                                <span class="option-card">
+                                    <span style="font-size: 24px;">📆</span>
+                                    <span style="font-weight: bold;">3/semana</span>
+                                    <span style="font-size: 11px; opacity: 0.7;">10 semanas</span>
+                                </span>
+                            </label>
+                            <label class="frequency-option">
+                                <input type="radio" name="frequency" value="weekly">
+                                <span class="option-card">
+                                    <span style="font-size: 24px;">📘</span>
+                                    <span style="font-weight: bold;">Semanal</span>
+                                    <span style="font-size: 11px; opacity: 0.7;">7 meses</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        Comenzar mi programa →
+                    </button>
+                </form>
+                
+                <!-- Kit form embed (oculto) -->
+                <div style="display: none;">
+                    <script async data-uid="9830d1d453" src="https://senderos.kit.com/9830d1d453/index.js"></script>
                 </div>
-                <div class="badge" style="color: var(--parchment);">
-                    <span>✓</span> 100% gratuito
+                
+                <div class="trust-indicators">
+                    <span class="trust-item">
+                        <span style="color: var(--olive-green); font-weight: bold;">✓</span> Sin spam
+                    </span>
+                    <span class="trust-item">
+                        <span style="color: var(--olive-green); font-weight: bold;">✓</span> 100% gratuito
+                    </span>
+                    <span class="trust-item">
+                        <span style="color: var(--olive-green); font-weight: bold;">✓</span> Cancela cuando quieras
+                    </span>
                 </div>
             </div>
         </div>
@@ -751,25 +858,81 @@
         </div>
     </footer>
 
-    <script>
-        function toggleTopic(card) {
-            card.classList.toggle('selected');
-        }
+<script>
+    function scrollToTopics() {
+        document.getElementById('topics').scrollIntoView({ behavior: 'smooth' });
+    }
 
-        function scrollToTopics() {
-            document.getElementById('topics').scrollIntoView({ behavior: 'smooth' });
+    function toggleProverbios(card) {
+        const details = document.getElementById('proverbios-details');
+        const isExpanded = card.classList.contains('expanded');
+        
+        if (isExpanded) {
+            card.classList.remove('expanded');
+            details.style.display = 'none';
+        } else {
+            card.classList.add('expanded');
+            details.style.display = 'block';
         }
+    }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            const selectedTopics = document.querySelectorAll('.topic-card.selected');
-            if (selectedTopics.length === 0) {
-                alert('Por favor, selecciona al menos un tema de estudio');
-                scrollToTopics();
-                return;
+    function goToForm(event) {
+        event.stopPropagation();
+        const formSection = document.getElementById('registro');
+        formSection.style.display = 'block';
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const data = {
+            email: formData.get('email'),
+            name: formData.get('name') || '',
+            frequency: formData.get('frequency'),
+            program: 'proverbios',
+            timestamp: new Date().toISOString()
+        };
+        
+        // Mostrar loading
+        const submitBtn = event.target.querySelector('.form-submit');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Enviando...';
+        submitBtn.disabled = true;
+        
+        // URL de Zapier
+        const ZAPIER_URL = 'https://hooks.zapier.com/hooks/catch/24589366/umhmsvk/';
+        
+        // Envío real a Zapier
+        fetch(ZAPIER_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if(response.ok) {
+                const frequencyText = data.frequency === 'daily' ? 'diarias' : 
+                                    data.frequency === '3-weekly' ? '3 veces por semana' : 
+                                    'semanales';
+                
+                alert(`¡Bienvenido a Senderos${data.name ? ', ' + data.name : ''}!\n\nRecibirás lecciones ${frequencyText} del programa de Proverbios.\n\nRevisa tu email para comenzar.`);
+                
+                event.target.reset();
+                document.getElementById('registro').style.display = 'none';
+            } else {
+                throw new Error('Error en el registro');
             }
-            alert('¡Gracias por registrarte! Revisa tu correo para comenzar tu viaje bíblico.');
-        }
-    </script>
-</body>
-</html>
+        })
+        .catch(error => {
+            alert('Hubo un problema. Por favor intenta de nuevo.');
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+    }
+</script>
